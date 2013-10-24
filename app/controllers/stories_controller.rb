@@ -1,20 +1,18 @@
 class StoriesController < ApplicationController
 
   def index
-
     @stories = Story.all
-
   end
+
 
 
   def new
-
     @story = Story.new
-
   end
 
+
   def create
-    p story_params
+    # p story_params
     @story = Story.new(story_params)
 
     if @story.save
@@ -23,6 +21,23 @@ class StoriesController < ApplicationController
     else
       flash[:error] = 'Story could not be created.'
       render 'new'
+    end
+  end
+
+
+  def edit
+    @story = Story.find(params[:id])
+  end
+
+
+  def update
+    @story = Story.find(params[:id])
+    if @story.update_attributes(story_params)
+      flash[:success] = 'Story saved'
+      redirect_to stories_path
+    else
+      flash[:error] = 'Story could not be saved.'
+      render 'edit'
     end
   end
 

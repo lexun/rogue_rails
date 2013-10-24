@@ -17,3 +17,14 @@ Scenario: Create Story
     And I should see "Stories"
     And I should see "The title of this story"
     And Story count should increment by 1
+
+
+#Feature:  Update Story
+#  In order to change the requirements of a story
+##  As a project team member
+#  I want to modify a story
+
+#Scenario:  Update Story
+#  Given I am in the Storyindex
+#  When I click the "The title of this story" link
+  
