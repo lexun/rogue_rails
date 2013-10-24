@@ -1,3 +1,13 @@
 <h1>Edit Story</h1>
 
-<%= render "form" %>
+<%= form_for @story, :validate => true do |builder| %>
+<%= render "form_fields", :builder => builder, :story => @story %>
+
+
+<%= builder.submit 'Save Story' %>
+<%= button_to "Delete Story", stories_path(@story.id), :method => :delete, :data => {:confirm => 'Are you sure?'} %>
+
+<%= link_to 'Cancel', stories_path %>
+
+
+<% end %>

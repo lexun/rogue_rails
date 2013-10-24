@@ -4,15 +4,19 @@ Given(/^I am in the Storyindex$/) do
 end
 
 When(/^I click the "(.*?)" button$/) do |arg1|
-  click_link('New Story')
+  click_button(arg1)
 end
 
 When(/^I fill in "(.*?)" with "(.*?)"$/) do |arg1, arg2|
   fill_in(arg1, :with => arg2)
 end
 
-When(/^I press "(.*?)"$/) do |arg1|
-  click_button arg1
+When(/^I setup to accept the choice$/) do 
+	page.evaluate_script('window.confirm = function() { return true; }')
+end
+
+When(/^I setup to decline the choice$/) do 
+	page.evaluate_script('window.confirm = function() { return false; }')
 end
 
 When(/^I select "(.*?)" from "(.*?)"$/) do |arg1, arg2|
@@ -23,12 +27,8 @@ Then(/^I should see "(.*?)"$/) do |arg1|
   page.should have_content(arg1)
 end
 
-Then(/^Story count should increment by (\d+)$/) do |arg1|
-  Story.count.should == @num_stories + arg1.to_i
-end
-
-Then(/^Story count should not increment by (\d+)$/) do |arg1|
-  Story.count.should == @num_stories
+Then(/^I should not see "(.*?)"$/) do |arg1|
+   page.should_not have_content(arg1)
 end
 
 Given(/^I have a story$/) do
@@ -38,4 +38,9 @@ end
 When(/^I go to the storyindex page$/) do
   visit stories_path
 end
+
+When(/^I click the "(.*?)" link$/) do |arg1|
+  click_link(arg1)
+end
+
 
