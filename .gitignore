@@ -18,9 +18,6 @@
 # Ignore database config
 config/database.yml
 
-# Ignore Git Pairs
-*.pairs
-
 # Ignore OSX cache files
 *.DS_Store
 

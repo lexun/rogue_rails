@@ -1,0 +1,9 @@
+pairs:
+  lb: Luke Barbuto
+  mb: Marcus Blankenship
+  et: Elena Tolpygo
+  kg: Ken Grimm
+email:
+  prefix: pair
+  domain: roguerails.com
+  no_solo_prefix: true
