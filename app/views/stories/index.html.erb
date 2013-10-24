@@ -3,8 +3,17 @@
 <%= link_to "New Story", new_story_path %>
 <br /><br />
 
-<% @stories.each do |story| %>
+<table>
+  <th>Name</th>
+  <th>Business Value</th>
+  <th>Complexity</th>
 
-<%= link_to story.i_want_to, edit_story_path(story) %><br />
+  <% @stories.each do |story| %>
+    <tr>
+      <td><%= link_to story.i_want_to, edit_story_path(story) %></td>
+      <td><%= story.value %></td>
+      <td><%= story.complexity %></td>
+      <td></td>
+    </tr>
 
 <% end %>

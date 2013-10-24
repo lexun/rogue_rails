@@ -30,3 +30,12 @@ end
 Then(/^Story count should not increment by (\d+)$/) do |arg1|
   Story.count.should == @num_stories
 end
+
+Given(/^I have a story$/) do
+  @story = Story.create!(:value => 0, :complexity => 1, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
+end
+
+When(/^I go to the storyindex page$/) do
+  visit stories_path
+end
+
