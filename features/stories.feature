@@ -1,4 +1,4 @@
-Feature: Create Stories
+Feature: Stories
   In order to capture requirements for a feature
   As a project team member
   I want to create a story
@@ -26,4 +26,8 @@ Scenario: Create Story
 #Scenario:  Update Story
 #  Given I am in the Storyindex
 #  When I click the "The title of this story" link
-  
+
+Scenario:  List stories
+  Given I have a story
+  When I go to the storyindex page
+  Then I should see "develop this feature"
