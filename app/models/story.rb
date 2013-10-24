@@ -1,9 +1,11 @@
 class Story < ActiveRecord::Base
 
-	
+validates :in_order_to, :presence => true
+validates :as_a, :presence => true
+validates :i_want_to, :presence => true
 
-validates_numericality_of :value, :in => 0..5
-validates_numericality_of :complexity, :in => 0..5
+validates :value, :numericality => {:in => 0..5}, :allow_nil => true
+validates :complexity, :numericality => {:in => 0..5}, :allow_nil => true
 
 
 end
