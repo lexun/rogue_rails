@@ -10,6 +10,8 @@ Scenario: Create Story
     And I fill in "In order to" with "win"
     And I fill in "As a" with "myself"
     And I fill in "I want to" with "develop this feature"
+    And I select "0" from "Value"
+    And I select "3" from "Complexity"
     And I press "Save Story"
     Then I should see "New story created."
     And I should see "Stories"
