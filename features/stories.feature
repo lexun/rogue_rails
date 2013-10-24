@@ -16,4 +16,4 @@ Scenario: Create Story
     Then I should see "New story created."
     And I should see "Stories"
     And I should see "The title of this story"
-    And I should have 1 story
+    And Story count should increment by 1

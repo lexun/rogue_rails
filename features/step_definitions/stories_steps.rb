@@ -1,4 +1,5 @@
 Given(/^I am in the Storyindex$/) do
+  @num_stories = Story.count
   visit('/stories')
 end
 
@@ -18,11 +19,10 @@ When(/^I select "(.*?)" from "(.*?)"$/) do |arg1, arg2|
   select(arg1, :from => arg2)
 end
 
-
 Then(/^I should see "(.*?)"$/) do |arg1|
   page.should have_content(arg1)
 end
 
-Then(/^I should have (\d+) story$/) do |arg1|
-  Story.count.should == 1
+Then(/^Story count should increment by (\d+)$/) do |arg1|
+  Story.count.should == @num_stories + arg1.to_i
 end
