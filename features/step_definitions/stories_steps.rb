@@ -26,3 +26,7 @@ end
 Then(/^Story count should increment by (\d+)$/) do |arg1|
   Story.count.should == @num_stories + arg1.to_i
 end
+
+Then(/^Story count should not increment by (\d+)$/) do |arg1|
+  Story.count.should == @num_stories
+end

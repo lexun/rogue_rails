@@ -3,7 +3,7 @@ Feature: Create Stories
   As a project team member
   I want to create a story
 
-Scenario: Create Story
+Scenario: Create Story, Success!
     Given I am in the Storyindex
     When I click the "New Story" button
     And I fill in "In order to" with "win"
@@ -16,6 +16,20 @@ Scenario: Create Story
     And I should see "Stories"
     And I should see "develop this feature"
     And Story count should increment by 1
+
+
+Scenario: Create Story, Fail, leave In Order To blank
+    Given I am in the Storyindex
+    When I click the "New Story" button
+    And I fill in "As a" with "myself"
+    And I fill in "I want to" with "develop this feature"
+    And I select "0" from "Value"
+    And I select "3" from "Complexity"
+    And I press "Save Story"
+    Then I should see "Story could not be created."
+    And I should see "New Story"
+    And I should see "In Order To cannot be left blank"
+    And Story count should not increment by 1
 
 
 #Feature:  Update Story
