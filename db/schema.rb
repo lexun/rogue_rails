@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024165255) do
+ActiveRecord::Schema.define(version: 20131024204338) do
 
   create_table "stories", force: true do |t|
-    t.string  "title",       limit: 50
     t.string  "in_order_to", limit: 150
     t.string  "as_a",        limit: 50
     t.string  "i_want_to",   limit: 500
