@@ -28,7 +28,6 @@ Scenario: Create Story, Fail, leave In Order To blank
     And I press "Save Story"
     Then I should see "Story could not be created."
     And I should see "New Story"
-    And I should see "In Order To cannot be left blank"
     And Story count should not increment by 1
 
 
