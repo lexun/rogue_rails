@@ -8,6 +8,7 @@
     <th>Name</th>
     <th>Business Value</th>
     <th>Complexity</th>
+    <th>Cost/Benefit Score</th>
   </thead>
 
   <tbody class='sortable' data-update-path="<%= sort_stories_path %>">
@@ -16,6 +17,7 @@
         <td><%= link_to story.i_want_to, edit_story_path(story) %></td>
         <td><%= story.value %></td>
         <td><%= story.complexity %></td>
+        <td class="score"><%= story.score %></td>
         <td></td>
       <% end %>
     <% end %>

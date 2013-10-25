@@ -1,6 +1,9 @@
 Given(/^I am in the Storyindex$/) do
-  @num_stories = Story.count
   visit('/stories')
+end
+
+Given(/^I have a story with bv: (\d+), and cv: (\d+)$/) do |bv, cv|
+  Story.create!(:value => bv, :complexity => cv, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
 end
 
 When(/^I click the "(.*?)" button$/) do |arg1|
@@ -32,7 +35,7 @@ Then(/^I should not see "(.*?)"$/) do |arg1|
 end
 
 Given(/^I have a story$/) do
-  @story = Story.create!(:value => 0, :complexity => 1, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
+  Story.create!(:value => 0, :complexity => 1, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
 end
 
 When(/^I go to the storyindex page$/) do
@@ -43,4 +46,8 @@ When(/^I click the "(.*?)" link$/) do |arg1|
   click_link(arg1)
 end
 
-
+Then(/^I should see the correct score: (\d+)$/) do |score|
+  within('.score') do
+    page.should have_content(score)
+  end
+end
