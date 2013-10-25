@@ -1,0 +1,22 @@
+$dark-blue: #40435E;
+$light-blue: #7A92AC;
+$sky-blue: #8BB9DA;
+$white: #FCFCFB;
+$grey: #CED5DB;
+$red: #C44747;
+
+.btn-tiny {
+  @extend .button;
+  @extend .tiny;
+
+  font-weight: normal;
+
+  &.submit {
+    background-color: $light-blue;
+    border-color: lighten($light-blue, 20%);
+  }
+  &.delete {
+    background-color: $red;
+    border-color: lighten($red, 20%);
+  }
+}

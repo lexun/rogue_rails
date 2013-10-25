@@ -1,0 +1,33 @@
+body { padding: 10px 20px; }
+
+.story { cursor: move; }
+
+.story:hover {
+  box-shadow: 5px 5px 3px #888888;
+  background-color: #ff9;
+  border: 1px solid #ccc;
+}
+
+.styled-select select {
+  width: 150px;
+}
+
+.notice {
+  background-color: #6f6;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  padding-left: 15px;
+  width:350px;
+}
+
+.error {
+  background-color: #f66;
+  padding: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  width:350px;
+  & li {
+    list-style-position: inside;
+  }
+}

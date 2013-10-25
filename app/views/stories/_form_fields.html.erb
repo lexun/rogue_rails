@@ -1,19 +1,19 @@
+<%= builder.label :in_order_to %> <%= builder.text_area :in_order_to, rows: 10, cols: 25 %>
+<br />
+<%= builder.label :as_a %> <%= builder.text_field :as_a, :size => 50 %>
+<br />
+<%= builder.label :i_want_to %> <%= builder.text_area :i_want_to, rows: 10, cols: 25 %>
+<br />
 
-	<%= builder.label :in_order_to %> <%= builder.text_area :in_order_to, rows: 10, cols: 25 %>
-       <br />
-    <%= builder.label :as_a %> <%= builder.text_field :as_a, :size => 50 %>
-       <br />
-    <%= builder.label :i_want_to %> <%= builder.text_area :i_want_to, rows: 10, cols: 25 %>
-       <br />
 
+<%= builder.label :value, 'Value' %>
+<div class="styled-select">
+ <%= builder.select(:value, options_for_select(0..5), :prompt => "--select value--") %>
+</div>
+<br />
 
-	<%= builder.label :value, 'Value' %>
-  <div class="styled-select">
-	 <%= builder.select(:value, options_for_select(0..5), :prompt => "--select value--") %>
-  </div>
-		<br />
-	<%= builder.label :complexity, 'Complexity' %>
-	<div class="styled-select">
-    <%= builder.select(:complexity, options_for_select(0..5), :prompt => "--select complexity--") %>
-  </div>
-	<br />
+<%= builder.label :complexity, 'Complexity' %>
+<div class="styled-select">
+  <%= builder.select(:complexity, options_for_select(0..5), :prompt => "--select complexity--") %>
+</div>
+<br />
