@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Story do 
+describe Story do
 	it 'validates the In Order To' do
 		Story.new(:in_order_to => '', :as_a=>'PM', :i_want_to=>'Do the thing').should_not be_valid
 	end

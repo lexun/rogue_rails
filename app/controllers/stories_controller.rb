@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.all.order(:position)
+    @stories = Story.all.order('position DESC')
   end
 
 
@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
     # p story_params
     @story = Story.new(story_params)
 
-    if @story.save!
+    if @story.save
       flash[:success] = 'New story created.'
       redirect_to stories_path
     else
@@ -42,7 +42,7 @@ class StoriesController < ApplicationController
   end
 
   def sort
-    params[:story].each_with_index do |id, index|
+    params[:story].reverse.each_with_index do |id, index|
       Story.where(id: id).update_all position: index+1
     end
     render nothing: true

@@ -10,8 +10,8 @@ describe StoriesController do
       post :sort, story: [s3.id, s1.id, s2.id]
 
       expect(Story.find(s1.id).position).to eql(2)
-      expect(Story.find(s2.id).position).to eql(3)
-      expect(Story.find(s3.id).position).to eql(1)
+      expect(Story.find(s2.id).position).to eql(1)
+      expect(Story.find(s3.id).position).to eql(3)
     end
 
     it "should render nothing" do
