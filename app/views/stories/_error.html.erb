@@ -1,0 +1,7 @@
+<% if story.errors.any? %>
+  <ul class="error">
+    <% story.errors.messages.each do |k,v| %>
+      <li><%= flash[:error] = "'#{k.to_s}' #{v[0].to_s}" %></li>
+    <% end %>
+  </ul>
+<% end %>
