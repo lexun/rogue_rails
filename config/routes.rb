@@ -13,6 +13,8 @@ StarterApp::Application.routes.draw do
     end
   end
 
+  root :to => "projects#index"
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

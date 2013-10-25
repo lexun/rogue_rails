@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe Story do
   def new_story(attributes = {})
-    Story.new({:in_order_to => 'Do good stuff', :as_a=>'PM', :i_want_to=>'Do the thing'}.merge(attributes))
+    project = Project.create!({:name => "Test project"})
+    Story.new({:project_id => project.id, :in_order_to => 'Do good stuff', :as_a=>'PM', :i_want_to=>'Do the thing'}.merge(attributes))
   end
 
   it 'validates a valid story' do
@@ -20,6 +21,11 @@ describe Story do
 	it 'validates the I Want to' do
 		new_story(:i_want_to=>'').should_not be_valid
 	end
+
+  it 'has a default status of Not Started' do
+    story = new_story
+    story.status.should == 'Not Started'
+  end
 
   describe '#score' do
     [[3, 4, 4], [5, 5, 5], [1, 5, 1], [5, 0, 10], [1, 1, 5]].each do |array|

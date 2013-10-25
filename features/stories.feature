@@ -31,6 +31,20 @@ Feature: Stories
       Then I should see "Story could not be saved."
       And I should see "New Story"
 
+  @wip
+  Scenario: Create Story with Status, Success!
+      Given I am in the ProjectStoryIndex
+      When I click the "New Story" link
+      And I fill in "In order to" with "win"
+      And I fill in "As a" with "myself"
+      And I fill in "I want to" with "develop this feature"
+      And I select "0" from "Value"
+      And I select "3" from "Complexity"
+      And I click the "Save Story" button
+      Then I should see "New story created."
+      And I should see "Stories"
+      And I should see "develop this feature"
+
 
   Scenario:  List stories
     Given I have a story

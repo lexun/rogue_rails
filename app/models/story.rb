@@ -7,6 +7,12 @@ class Story < ActiveRecord::Base
 	validates :value, :numericality => {:in => 0..5}, :allow_nil => true
   validates :position, :presence => true
 
+  before_save :default_values
+  
+  def default_values
+    self.status ||= "Not Started"
+  end
+
   def score
     (complexity - 6).abs + value - 1
   end
