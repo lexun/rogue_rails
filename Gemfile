@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
-gem 'mysql2'
+
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -14,6 +14,7 @@ gem 'turbolinks'
 gem 'thin'
 
 group :development, :test do
+  gem 'mysql2'
   gem 'rspec-rails', '~> 2.0'
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'pry'
@@ -31,3 +32,8 @@ group :test do
   gem 'headless'
   gem 'pickle'
 end
+
+group :production do
+  gem 'pg'
+end
+
