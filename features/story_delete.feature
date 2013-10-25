@@ -1,7 +1,8 @@
 Feature: Delete a Story
-
+    
   Background:
-    Given I am in the Storyindex
+    Given I have a project
+    Given I am in the ProjectStoryIndex
     When I click the "New Story" link
     And I fill in "In order to" with "win"
     And I fill in "As a" with "myself"
@@ -13,7 +14,7 @@ Feature: Delete a Story
 
 @javascript
 Scenario: Delete a story, choose OK
-	Given I am in the Storyindex
+	Given I am in the ProjectStoryIndex
 	When I click the "develop this feature" link
 	And I setup to accept the choice
 	And I click the "Delete Story" button
@@ -23,7 +24,7 @@ Scenario: Delete a story, choose OK
 
 @javascript
 Scenario: Delete a story, choose CANCEL
-	Given I am in the Storyindex
+	Given I am in the ProjectStoryIndex
 	When I click the "develop this feature" link
 	And I setup to decline the choice
 	And I click the "Delete Story" button

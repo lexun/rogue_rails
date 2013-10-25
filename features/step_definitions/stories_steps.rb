@@ -1,9 +1,13 @@
-Given(/^I am in the Storyindex$/) do
-  visit('/stories')
+Given(/^I have a project$/) do
+  @project = Project.create!(:name => 'My New Project')  
+end
+
+Given(/^I am in the ProjectStoryIndex$/) do
+  visit(project_stories_path(@project))
 end
 
 Given(/^I have a story with bv: (\d+), and cv: (\d+)$/) do |bv, cv|
-  Story.create!(:value => bv, :complexity => cv, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
+  Story.create!(:project_id => @project.id, :value => bv, :complexity => cv, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
 end
 
 When(/^I click the "(.*?)" button$/) do |arg1|
@@ -35,11 +39,11 @@ Then(/^I should not see "(.*?)"$/) do |arg1|
 end
 
 Given(/^I have a story$/) do
-  Story.create!(:value => 0, :complexity => 1, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
+  Story.create!(:project_id => @project.id, :value => 0, :complexity => 1, :i_want_to => 'develop this feature', :as_a => 'team member', :in_order_to => 'finish this assignment')
 end
 
-When(/^I go to the storyindex page$/) do
-  visit stories_path
+When(/^I go to the ProjectStoryIndex page$/) do
+  visit project_stories_path(@project)
 end
 
 When(/^I click the "(.*?)" link$/) do |arg1|
@@ -51,3 +55,4 @@ Then(/^I should see the correct score: (\d+)$/) do |score|
     page.should have_content(score)
   end
 end
+

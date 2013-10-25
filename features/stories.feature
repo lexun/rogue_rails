@@ -3,8 +3,11 @@ Feature: Stories
   As a project team member
   I want to create a story
 
+  Background:
+    Given I have a project
+
   Scenario: Create Story, Success!
-      Given I am in the Storyindex
+      Given I am in the ProjectStoryIndex
       When I click the "New Story" link
       And I fill in "In order to" with "win"
       And I fill in "As a" with "myself"
@@ -18,7 +21,7 @@ Feature: Stories
 
 
   Scenario: Create Story, Fail, leave In Order To blank
-      Given I am in the Storyindex
+      Given I am in the ProjectStoryIndex
       When I click the "New Story" link
       And I fill in "As a" with "myself"
       And I fill in "I want to" with "develop this feature"
@@ -31,12 +34,12 @@ Feature: Stories
 
   Scenario:  List stories
     Given I have a story
-    When I am in the Storyindex
+    Given I am in the ProjectStoryIndex
     Then I should see "develop this feature"
 
   Scenario Outline: Calculate scores
     Given I have a story with bv: <bv>, and cv: <cv>
-    When I am in the Storyindex
+    Given I am in the ProjectStoryIndex
     Then I should see the correct score: <score>
 
     Examples:

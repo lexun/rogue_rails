@@ -1,5 +1,6 @@
 class Story < ActiveRecord::Base
   belongs_to :project
+  validates_presence_of :project
 	validates :in_order_to, :presence => true
 	validates :as_a, :presence => true
 	validates :i_want_to, :presence => true
