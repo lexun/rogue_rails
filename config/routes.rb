@@ -5,9 +5,11 @@ StarterApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  resources :stories do
-    collection do
-      post :sort
+  resources :projects do
+    resources :stories do
+      collection do
+        post :sort
+      end
     end
   end
 

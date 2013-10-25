@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131025172143) do
+ActiveRecord::Schema.define(version: 20131025173501) do
 
   create_table "projects", force: true do |t|
     t.string "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131025172143) do
     t.integer "value",       limit: 1
     t.integer "complexity",  limit: 1
     t.integer "position",                default: 0
+    t.integer "project_id"
   end
 
 end
