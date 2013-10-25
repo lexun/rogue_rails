@@ -5,7 +5,11 @@ StarterApp::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
-  resources :stories
+  resources :stories do
+    collection do
+      post :sort
+    end
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
