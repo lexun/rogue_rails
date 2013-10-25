@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024224029) do
+ActiveRecord::Schema.define(version: 20131025172143) do
+
+  create_table "projects", force: true do |t|
+    t.string "name"
+  end
 
   create_table "stories", force: true do |t|
     t.string  "in_order_to", limit: 150
