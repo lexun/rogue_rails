@@ -1,0 +1,13 @@
+<h1>Edit Project</h1>
+
+<%= render 'shared/breadcrumb' %>
+<%= render "shared/error", :object=> @project %>
+
+<%= form_for @project, :validate => true do |builder| %>
+<%= render "form_fields", :builder => builder %>
+
+
+<%= builder.submit 'Save Project' %>
+<%= link_to 'Cancel', projects_path %>
+
+<% end %>
