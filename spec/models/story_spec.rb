@@ -1,16 +1,33 @@
 require 'spec_helper'
 
 describe Story do
+  def new_story(attributes = {})
+    Story.new({:in_order_to => 'Do good stuff', :as_a=>'PM', :i_want_to=>'Do the thing'}.merge(attributes))
+  end
+
+  it 'validates a valid story' do
+    new_story.should be_valid
+  end
+
 	it 'validates the In Order To' do
-		Story.new(:in_order_to => '', :as_a=>'PM', :i_want_to=>'Do the thing').should_not be_valid
+		new_story(:in_order_to => '').should_not be_valid
 	end
 
 	it 'validates the As A' do
-		Story.new(:in_order_to => 'Do good stuff', :as_a=>'', :i_want_to=>'Do the thing').should_not be_valid
+		new_story(:as_a=>'').should_not be_valid
 	end
 
 	it 'validates the I Want to' do
-		Story.new(:in_order_to => 'Do good stuff', :as_a=>'PM', :i_want_to=>'').should_not be_valid
+		new_story(:i_want_to=>'').should_not be_valid
 	end
+
+  describe '#score' do
+    [[3, 4, 4], [5, 5, 5], [1, 5, 1], [5, 0, 10], [1, 1, 5]].each do |array|
+      it "calculates a score with bv: #{array[0]} and cv: #{array[1]}" do
+        story = new_story({value: array[0], complexity: array[1]})
+        expect(story.score).to eq(array[2])
+      end
+    end
+  end
 
 end

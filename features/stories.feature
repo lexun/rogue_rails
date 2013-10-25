@@ -31,5 +31,18 @@ Feature: Stories
 
   Scenario:  List stories
     Given I have a story
-    When I go to the storyindex page
+    When I am in the Storyindex
     Then I should see "develop this feature"
+
+  Scenario Outline: Calculate scores
+    Given I have a story with bv: <bv>, and cv: <cv>
+    When I am in the Storyindex
+    Then I should see the correct score: <score>
+
+    Examples:
+      | bv | cv | score |
+      | 1  | 5  | 1     |
+      | 5  | 0  | 10    |
+      | 3  | 4  | 4     |
+      | 5  | 5  | 5     |
+      | 1  | 1  | 5     |

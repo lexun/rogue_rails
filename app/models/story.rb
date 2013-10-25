@@ -4,4 +4,8 @@ class Story < ActiveRecord::Base
 	validates :i_want_to, :presence => true
 	validates :value, :numericality => {:in => 0..5}, :allow_nil => true
   validates :position, :presence => true
+
+  def score
+    (complexity - 6).abs + value - 1
+  end
 end
