@@ -1,0 +1,10 @@
+<h1>New Project</h1>
+
+<%= form_for @project, :validate => true do |builder| %>
+<%= render "form_fields", :builder => builder %>
+
+
+<%= builder.submit 'Save Project' %>
+<%= link_to 'Cancel', projects_path %>
+
+<% end %>

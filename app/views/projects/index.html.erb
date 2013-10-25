@@ -1,0 +1,21 @@
+<h1>Projects List</h1>
+
+<%= link_to "New Project", new_project_path %>
+<br /><br />
+
+<table>
+  <thead>
+    <th>Project Name</th>
+  </thead>
+
+  <tbody>
+    <% @projects.each do |project| %>
+      <%= content_tag_for :tr, project do %>
+        <td><%= link_to project.name, edit_project_path(project) %></td>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+
+
