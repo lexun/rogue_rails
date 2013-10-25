@@ -1,7 +1,7 @@
 <h1>Edit Story</h1>
 
 <%= form_for [@project, @story], :validate => true do |builder| %>
-<%= render "error", :story=> @story %>
+<%= render "shared/error", :object=> @story %>
 <%= render "form_fields", :builder => builder, :story => @story %>
 
 <%= builder.submit 'Save Story' %>

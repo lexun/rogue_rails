@@ -1,5 +1,5 @@
 <% if object.errors.any? %>
-<div class="error"><%= "#{object.class} could not be saved." %></div>
+<%= "#{object.class} could not be saved." %>
   <ul class="error">
     <% object.errors.messages.each do |k,v| %>
       <li><%= flash[:error] = "'#{k.to_s}' #{v[0].to_s}" %></li>

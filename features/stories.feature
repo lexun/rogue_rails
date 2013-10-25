@@ -28,7 +28,7 @@ Feature: Stories
       And I select "0" from "Value"
       And I select "3" from "Complexity"
       And I click the "Save Story" button
-      Then I should see "Story could not be created."
+      Then I should see "Story could not be saved."
       And I should see "New Story"
 
 

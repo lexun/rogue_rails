@@ -62,6 +62,7 @@ class StoriesController < ApplicationController
 
   def find_project 
     @project = Project.find(params[:project_id])
+    @project_name = @project.name
   end
 
 end

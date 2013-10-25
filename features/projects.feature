@@ -13,7 +13,7 @@ Feature: Projects
     When I click the "New Project" link
     And I fill in "Name" with ""
     And I click the "Save Project" button
-    Then I should see "Project could not be created."
+    Then I should see "Project could not be saved."
     And I should see "New Project"
 
 
