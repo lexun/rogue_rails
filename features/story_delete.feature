@@ -17,7 +17,7 @@ Scenario: Delete a story, choose OK
 	Given I am in the ProjectStoryIndex
 	When I click the "develop this feature" link
 	And I setup to accept the choice
-	And I click the "Delete Story" button
+	And I click the "Delete Story" link
 	Then I should see "Story was deleted."
     And I should see "Stories"
 	And I should not see "develop this feature"    
@@ -27,5 +27,5 @@ Scenario: Delete a story, choose CANCEL
 	Given I am in the ProjectStoryIndex
 	When I click the "develop this feature" link
 	And I setup to decline the choice
-	And I click the "Delete Story" button
+	And I click the "Delete Story" link
 	And I should see "Edit Story"
