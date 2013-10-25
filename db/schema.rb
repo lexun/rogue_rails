@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024204338) do
+ActiveRecord::Schema.define(version: 20131024224029) do
 
   create_table "stories", force: true do |t|
     t.string  "in_order_to", limit: 150
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20131024204338) do
     t.string  "i_want_to",   limit: 500
     t.integer "value",       limit: 1
     t.integer "complexity",  limit: 1
+    t.integer "position",                default: 0
   end
 
 end

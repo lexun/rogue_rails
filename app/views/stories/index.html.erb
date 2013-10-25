@@ -4,16 +4,19 @@
 <br /><br />
 
 <table>
-  <th>Name</th>
-  <th>Business Value</th>
-  <th>Complexity</th>
+  <thead>
+    <th>Name</th>
+    <th>Business Value</th>
+    <th>Complexity</th>
+  </thead>
 
-  <% @stories.each do |story| %>
-    <tr>
-      <td><%= link_to story.i_want_to, edit_story_path(story) %></td>
-      <td><%= story.value %></td>
-      <td><%= story.complexity %></td>
-      <td></td>
-    </tr>
-
-<% end %>
+  <tbody class='sortable' data-update-path="<%= sort_stories_path %>">
+    <% @stories.each do |story| %>
+      <%= content_tag_for :tr, story do %>
+        <td><%= link_to story.i_want_to, edit_story_path(story) %></td>
+        <td><%= story.value %></td>
+        <td><%= story.complexity %></td>
+        <td></td>
+      <% end %>
+    <% end %>
+  </tbody>

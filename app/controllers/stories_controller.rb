@@ -1,7 +1,7 @@
 class StoriesController < ApplicationController
 
   def index
-    @stories = Story.all
+    @stories = Story.all.order(:position)
   end
 
 
@@ -15,7 +15,7 @@ class StoriesController < ApplicationController
     # p story_params
     @story = Story.new(story_params)
 
-    if @story.save
+    if @story.save!
       flash[:success] = 'New story created.'
       redirect_to stories_path
     else
@@ -41,6 +41,13 @@ class StoriesController < ApplicationController
     end
   end
 
+  def sort
+    params[:story].each_with_index do |id, index|
+      Story.where(id: id).update_all position: index+1
+    end
+    render nothing: true
+  end
+
 
   def destroy
     @story = Story.find(params[:id])
@@ -50,7 +57,7 @@ class StoriesController < ApplicationController
   end
 
 
-  private 
+  private
 
   def story_params
     params.required(:story).permit(:title, :in_order_to, :as_a, :i_want_to, :value, :complexity)

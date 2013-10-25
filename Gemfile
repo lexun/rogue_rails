@@ -16,7 +16,8 @@ gem 'thin'
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'jasminerice', git: 'https://github.com/bradphelan/jasminerice.git'
-  gem 'debugger'
+  gem 'pry'
+  gem 'pry-debugger'
 end
 
 group :test do
