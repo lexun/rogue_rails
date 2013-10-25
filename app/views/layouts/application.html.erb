@@ -13,7 +13,7 @@
   	<!-- Set the viewport width to device width for mobile -->
   	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  	<title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  	<title><%= page_title %></title>
 
   	<%= stylesheet_link_tag    "application" %>
   	<%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -21,13 +21,20 @@
   </head>
 
   <body>
-    <% flash.each do |key,value| %>
-      <div class="flash_<%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
+    <div class="row">
+      <div class="small-12">
+        <% flash.each do |key,value| %>
+          <% if key == :success %>
+            <div class="notice">
+              <%= value %>
+            </div>
+          <% end %>
 
-    <%= yield %>
+        <% end %>
+
+        <%= yield %>
+      </div>
+    </div>
 
     <%= javascript_include_tag "application" %>
   </body>
